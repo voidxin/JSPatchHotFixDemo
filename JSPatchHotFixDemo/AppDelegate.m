@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import <JSPatch/JSPatch.h>
+#define kJSPatchKey @"a368c7abdb625542"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [JSPatch startWithAppKey:kJSPatchKey];
+    //[JSPatch testScriptInBundle];
+    [JSPatch sync];
     return YES;
 }
 
